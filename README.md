@@ -7,6 +7,7 @@ Repo files:
 - **parameters.json**:  ARM Template parameter file.  Basic parameters added and can be extended as needed.
 - **template.json**:  ARM Template defining the AML resources with compute resources not in a VNET.
 - **template_VNET.json**:  ARM Template defining the AML resources with compute resources in a VNET.
+- **CustomRoles/**:  Azure custom role definitions for common Data Science operationalization patterns.
 
 AML ARM Template Reference:
 https://docs.microsoft.com/en-us/azure/templates/microsoft.machinelearningservices/allversions

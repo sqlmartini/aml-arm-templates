@@ -19,6 +19,24 @@
             "metadata": {
                 "description": "VM size of the AML Compute Cluster"
              }            
-        }                  
+        },
+        "amlComputeMinNodes": {
+            "value": 0,            
+            "metadata": {
+                "description": "Minimum number of nodes for the AML Compute Cluster"
+             }            
+        },       
+       "amlComputeMaxNodes": {
+            "value": 4,            
+            "metadata": {
+                "description": "Maximum number of nodes for the AML Compute Cluster"
+             }            
+        },
+       "amlComputeTimeBeforeScaleDown": {
+            "value": "PT120S",            
+            "metadata": {
+                "description": "Idle time before scaling down the nodes in the AML Compute Cluster.  ISO 8601 format."
+             }            
+        }                          
     }
 }

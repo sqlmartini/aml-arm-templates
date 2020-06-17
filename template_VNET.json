@@ -28,7 +28,29 @@
             "metadata": {
                 "description": "VM size of the AML Compute Cluster"
              }            
-        }                          
+        },
+       "amlComputeMinNodes": {
+            "type": "int",
+            "defaultValue": 0,            
+            "metadata": {
+                "description": "Minimum number of nodes for the AML Compute Cluster"
+             }            
+        },       
+       "amlComputeMaxNodes": {
+            "type": "int",
+            "defaultValue": 4,            
+            "metadata": {
+                "description": "Maximum number of nodes for the AML Compute Cluster"
+             }            
+        },
+       "amlComputeTimeBeforeScaleDown": {
+            "type": "string",
+            "defaultValue": "PT120S",            
+            "metadata": {
+                "description": "Idle time before scaling down the nodes in the AML Compute Cluster.  ISO 8601 format."
+             }            
+        }               
+
     },
     "variables": {
         "storageAccountName": "[concat(parameters('resourceNamePrefix'), 'storage')]",
@@ -179,8 +201,9 @@
                     "vmSize": "[parameters('amlComputeSize')]",
                     "remoteLoginPortPublicAccess": "Enabled",
                     "scaleSettings": {
-                        "maxNodeCount": "4",
-                        "minNodeCount": "0"
+                        "maxNodeCount": "[parameters('amlComputeMaxNodes')]",
+                        "minNodeCount": "[parameters('amlComputeMinNodes')]",
+                        "nodeIdleTimeBeforeScaleDown": "[parameters('amlComputeTimeBeforeScaleDown')]"
                     },
                     "subnet": {
                         "id": "[resourceId('Microsoft.Network/VirtualNetworks/subnets', variables('virtualNetworkName'), 'default')]"
